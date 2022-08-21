@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: yellow;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+}
+
+.intro h2 {
+    text-align: center;
+}
+
+.start {
+    margin: auto;
+    background: pink;
+    width: 160px;
+    height: 30px;
+}
+
+.btn-start { 
+    width: 100px;
+    height: 30px;
+    background: lightgray;
+    
+}
+
+
