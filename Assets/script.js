@@ -1,6 +1,8 @@
 var startButton = document.querySelector('.btn-start');
 var timeEl = document.querySelector('.tik-tok');
+var quizz1 = document.querySelector('#quiz1');
 
+// To countdown the time 
 var timeLeft = function() {
     var timeRemain = 10;
 
@@ -14,12 +16,13 @@ var timeLeft = function() {
         }
     }, 1000);
     
-}
-// var clickStart = function() {
-    
-//     })
-// };
+};
 
+// Once the start button is clicked the time will start counting down
 startButton.addEventListener('click', timeLeft);
-    
-    
+ 
+
+
+
+
+// quizz1.style.visibility = 'hidden';
