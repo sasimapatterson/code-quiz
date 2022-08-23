@@ -20,12 +20,12 @@ header p, .tik-tok {
     font-size: 1.2rem;
 }
 
-
-
 .intro {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 50px;
+    background: yellow;
 }
 
 .welcome {
