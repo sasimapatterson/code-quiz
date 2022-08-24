@@ -8,15 +8,20 @@ var quizz3 = document.querySelector('#quiz3');
 var quizz4 = document.querySelector('#quiz4');
 var buttons = document.querySelectorAll('.choice');
 var intro = document.querySelector('.intro');
-var scorePage = document.querySelector('#score')
+var endPage = document.querySelector('#end');
+var scoreCount = document.querySelector('#scoreBox');
 var position = 1;
 var timeInterval;
 
 var score = 0;
+var point = localStorage.getItem("point");
+
+scoreCount.textContent = point;
+
 
 // To countdown the time 
 var timeLeft = function () {
-    var timeRemain = 75;
+    var timeRemain = 60;
 
     timeInterval = setInterval(function () {
         timeRemain--;
@@ -30,47 +35,44 @@ var timeLeft = function () {
 
 };
 
-// Once the start button is clicked the time will start counting down
+// Once the start button is clicked the time will start counting down and the quiz1 will display
 startButton.addEventListener('click', function () {
     timeLeft();
     setState("quizBox");
 });
 
-
-// var questionOne = [
-//     {   title: "Question1",
-//         choices : ['Andrew', 'Sasima', 'Keith', 'Tara'],
-//         answer: 'Sasima'
-//     }
-// ]
+// To display the intro and questions one at a time
 var setState = function (state) {
 
     intro.style.display = 'none';
     quizBox.style.display = 'none';
-    scorePage.style.display = 'none';
+    endPage.style.display = 'none';
 
     if (state === "intro") {
-        intro.style.display = 'block';
+        intro.style.display = '';
     }
     if (state === "quizBox") {
-        quizBox.style.display = 'block';
+        quizBox.style.display = '';
     }
-    if (state === "score") {
-        scorePage.style.display = 'block';
+    if (state === "end") {
+        endPage.style.display = '';
     }
 }
 
-// console.log(answer);
+// To hide all the quizzes except quiz1
 // quizz1.style.display = 'none';
 quizz2.style.display = 'none';
 quizz3.style.display = 'none';
 quizz4.style.display = 'none';
+
+// To display the next set of question one at a time
 var displayNextQuestion = function (parentNode) {
     position++;
     parentNode.style.display = 'none';
     var nextQuestionEl = document.querySelector('#quiz' + position);
     nextQuestionEl.style.display = null;
 }
+
 document.addEventListener('click', function (event) {
     // var answer = buttons.textContent;
     if (event.target.matches('.choice')) {
@@ -89,9 +91,10 @@ document.addEventListener('click', function (event) {
     }
 });
 
+// To stop the timer when last quiz was clicked
 var endQuiz = function(){
     clearInterval(timeInterval);
-    setState("score");
+    setState("end");
 }
 
 setState("intro");
