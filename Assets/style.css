@@ -5,13 +5,13 @@
 }
 
 body {
-    
+    background: yellow;
 }
 
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 40px;
     
 }
 
@@ -96,3 +96,41 @@ header p, .tik-tok {
     color: white;
 }
 
+#end {
+    width: 600px;
+    height: 300px;
+    margin: auto;
+    margin-top: 100px;
+    background: lightblue;
+}
+
+#end h2 {
+    font-size: 2.5rem;
+
+}
+
+#end p {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+#initial {
+    display: flex;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+input {
+    height: 30px;
+    width: 150px;
+    margin-top:25px;
+}
+
+.submit {
+    width: 100px;
+    height: 30px;
+    background: purple;   
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 25px;
+}
