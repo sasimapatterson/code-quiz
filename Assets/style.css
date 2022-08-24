@@ -4,28 +4,25 @@
     box-sizing: border-box;
 }
 
-body {
-    background: yellow;
-}
-
+/* View Highscore & Timer */
 header {
     display: flex;
     justify-content: space-between;
     padding: 40px;
-    
 }
 
-header p, .tik-tok {
+header p,
+.tik-tok{
     color: #781C68;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
+/* Quiz Rules */
 .intro {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
-    background: yellow;
 }
 
 .welcome {
@@ -33,7 +30,6 @@ header p, .tik-tok {
     height: 200px;
     margin-top: 50px;
     text-align: center;
-    
 }
 
 .intro h2 {
@@ -54,19 +50,20 @@ header p, .tik-tok {
     height: 50px;
 }
 
-.btn-start { 
+.btn-start {
     width: 150px;
     height: 40px;
-    background: purple;   
+    border-radius: 8px;
+    background: purple;
     font-size: 1.2rem;
     color: white;
 }
 
+/* Quiz Sections */
 .quiz-box {
     margin-top: 30px;
     width: auto;
     height: auto;
-    /* background: salmon; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -79,13 +76,13 @@ header p, .tik-tok {
     gap: 10px;
     width: 700px;
     height: 300px;
-   /* background: lightblue; */
 }
 
 .quiz h2 {
     font-size: 2rem;
 }
 
+/* Answer Buttons */
 .choice {
     width: 350px;
     height: 50px;
@@ -93,20 +90,20 @@ header p, .tik-tok {
     text-align: left;
     padding-left: 8px;
     background: purple;
+    border-radius: 8px;
     color: white;
 }
 
+/* End Quiz with the score display and input for initials */
 #end {
     width: 600px;
     height: 300px;
     margin: auto;
-    margin-top: 100px;
-    background: lightblue;
+    margin-top: 100px;  
 }
 
 #end h2 {
     font-size: 2.5rem;
-
 }
 
 #end p {
@@ -123,14 +120,80 @@ header p, .tik-tok {
 input {
     height: 30px;
     width: 150px;
-    margin-top:25px;
+    margin-top: 25px;
 }
 
 .submit {
     width: 100px;
     height: 30px;
-    background: purple;   
+    background: purple;
     font-size: 1.2rem;
     color: white;
     margin-top: 25px;
+    border-radius: 8px;
+}
+
+
+/* -------  Media query for smaller screens ------- */
+@media only screen and (max-width: 780px) {
+    .quiz-box {
+        margin-top: 30px;
+        width: auto;
+        height: auto;
+    }
+
+    .quiz {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        background: salmon;
+        gap: 10px;
+        width: 450px;
+        height: 400px; 
+    }
+
+    .quiz h2 {
+        font-size: 1.65rem;
+        text-align: center;
+    }
+
+    #end {
+        width: 500px;
+        height: 200px;
+        margin: auto;
+        margin-top: 100px;
+        padding: 10px;   
+    }
+    
+    #end h2 {
+        font-size: 2rem;
+    }
+    
+    #end p {
+        font-size: 1.5rem;
+        margin-top: 20px;
+    }
+    
+    #initial {
+        display: flex;
+        margin-top: 20px;
+        gap: 8px;
+    }
+    
+    input {
+        height: 30px;
+        width: 150px;
+        margin-top: 25px;
+    }
+    
+    .submit {
+        width: 100px;
+        height: 30px;
+        background: purple;
+        font-size: 1.2rem;
+        color: white;
+        margin-top: 25px;
+        border-radius: 8px;
+    }
 }
