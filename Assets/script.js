@@ -58,6 +58,7 @@ var setState = function (state) {
     if (state === "end") {
         endPage.style.display = '';
     }
+    
 }
 
 // To hide all the quizzes except quiz1
