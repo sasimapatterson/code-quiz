@@ -19,9 +19,10 @@ var point = localStorage.getItem("point");
 scoreCount.textContent = point;
 
 
+
 // To countdown the time 
 var timeLeft = function () {
-    var timeRemain = 60;
+    var timeRemain = 45;
 
     timeInterval = setInterval(function () {
         timeRemain--;
@@ -74,11 +75,11 @@ var displayNextQuestion = function (parentNode) {
 }
 
 document.addEventListener('click', function (event) {
-    // var answer = buttons.textContent;
+   
     if (event.target.matches('.choice')) {
         var element = event.target;
         var parent = element.parentNode;
-        console.log(element.textContent);
+        // console.log(element.textContent);
         if (element.textContent === parent.dataset.answer) {
             score++;
         }
