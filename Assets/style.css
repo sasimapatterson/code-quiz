@@ -133,7 +133,6 @@ input {
     border-radius: 8px;
 }
 
-
 /* -------  Media query for smaller screens ------- */
 @media only screen and (max-width: 780px) {
 
@@ -168,7 +167,6 @@ input {
         gap: 10px;
         width: 350px;
         height: 350px;
-
     }
 
     .quiz h2 {

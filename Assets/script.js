@@ -58,7 +58,7 @@ var setState = function (state) {
     if (state === "end") {
         endPage.style.display = '';
     }
-    
+
 }
 
 // To hide all the quizzes except quiz1
@@ -75,26 +75,30 @@ var displayNextQuestion = function (parentNode) {
     nextQuestionEl.style.display = null;
 }
 
+var displayScores = function() {
+
+}
+
 document.addEventListener('click', function (event) {
-   
+
     if (event.target.matches('.choice')) {
         var element = event.target;
         var parent = element.parentNode;
         // console.log(element.textContent);
         if (element.textContent === parent.dataset.answer) {
-            score++;
+            score++
+            scoreCount.innerHTML = ` ${score}`;
         }
         if (parent.dataset.answer === "c.quotes") {
             endQuiz();
         } else {
             displayNextQuestion(parent);
         }
-
     }
 });
 
 // To stop the timer when last quiz was clicked
-var endQuiz = function(){
+var endQuiz = function () {
     clearInterval(timeInterval);
     setState("end");
 }
