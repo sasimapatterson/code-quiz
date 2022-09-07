@@ -123,7 +123,7 @@ input {
     margin-top: 25px;
 }
 
-.submit {
+.submit, .back {
     width: 100px;
     height: 30px;
     background: purple;
@@ -131,6 +131,41 @@ input {
     color: white;
     margin-top: 25px;
     border-radius: 8px;
+}
+
+#saved-scores {
+    width: 600px;
+    height: 300px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+#saved-scores h2 {
+    font-size: 2.5rem;
+}
+
+#saved-scores p {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+.clear {
+    width: 200px;
+    height: 30px;
+    background: purple;
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 25px;
+    border-radius: 8px;
+}
+
+.saved-result {
+    height: 30px;
+    width: 550px;
+    /* margin-top: 25px; */
+    border: none;
+    background: #AFB4FF;
+    font-size: 1rem;
 }
 
 /* -------  Media query for smaller screens ------- */

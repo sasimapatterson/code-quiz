@@ -10,19 +10,23 @@ var buttons = document.querySelectorAll('.choice');
 var intro = document.querySelector('.intro');
 var endPage = document.querySelector('#end');
 var scoreCount = document.querySelector('#scoreBox');
+var savedScores = document.querySelector('#saved-scores')
+var submitBtn = document.querySelector('.submit');
+var savedResult = document.querySelector('.saved-result');
+var goBackBtn = document.querySelector('.back');
 var position = 1;
 var timeInterval;
-
+var timeRemain = 45;
 var score = 0;
 var point = localStorage.getItem("point");
 
 scoreCount.textContent = point;
 
-
+// endPage.style.display = null;
 
 // To countdown the time 
 var timeLeft = function () {
-    var timeRemain = 45;
+    // var timeRemain = 45;
 
     timeInterval = setInterval(function () {
         timeRemain--;
@@ -36,6 +40,7 @@ var timeLeft = function () {
 
 };
 
+
 // Once the start button is clicked the time will start counting down and the quiz1 will display
 startButton.addEventListener('click', function () {
     timeLeft();
@@ -44,10 +49,10 @@ startButton.addEventListener('click', function () {
 
 // To display the intro and questions one at a time
 var setState = function (state) {
-
     intro.style.display = 'none';
     quizBox.style.display = 'none';
     endPage.style.display = 'none';
+    savedScores.style.display = 'none';
 
     if (state === "intro") {
         intro.style.display = '';
@@ -58,6 +63,9 @@ var setState = function (state) {
     if (state === "end") {
         endPage.style.display = '';
     }
+    // if (state === "saved-scores") {
+    //     savedScores.style.display = '';
+    // }
 
 }
 
@@ -66,6 +74,8 @@ var setState = function (state) {
 quizz2.style.display = 'none';
 quizz3.style.display = 'none';
 quizz4.style.display = 'none';
+// endPage.style.display = 'none';
+// savedScored.style.display = 'none';
 
 // To display the next set of question one at a time
 var displayNextQuestion = function (parentNode) {
@@ -75,9 +85,6 @@ var displayNextQuestion = function (parentNode) {
     nextQuestionEl.style.display = null;
 }
 
-var displayScores = function() {
-
-}
 
 document.addEventListener('click', function (event) {
 
@@ -88,6 +95,9 @@ document.addEventListener('click', function (event) {
         if (element.textContent === parent.dataset.answer) {
             score++
             scoreCount.innerHTML = ` ${score}`;
+        } 
+        if (element.textContent !== parent.dataset.answer){
+            timeRemain-= 10;
         }
         if (parent.dataset.answer === "c.quotes") {
             endQuiz();
@@ -96,6 +106,30 @@ document.addEventListener('click', function (event) {
         }
     }
 });
+
+submitBtn.addEventListener('click', function () {
+    
+    var initialName = document.querySelector('.initial').value;
+    var highScores = { score, initialName };
+    localStorage.setItem('HIGH_SCORE', JSON.stringify(highScores));
+    JSON.parse(localStorage.getItem('HIGH_SCORE'));
+        endPage.style.display = 'none';
+        // savedScores.style.display = '';
+        var data = JSON.parse(localStorage.getItem('HIGH_SCORE'))
+        showScores(data);
+})
+
+function showScores(data) {
+    savedScores.style.display = '';
+
+    var lis = document.createElement('li');
+    lis.innerHTML = data[i];
+    savedResult.appendChild(lis);
+}
+
+goBackBtn.addEventListener('click', function(){
+    setState('intro');
+})
 
 // To stop the timer when last quiz was clicked
 var endQuiz = function () {
