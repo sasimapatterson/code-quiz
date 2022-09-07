@@ -22,12 +22,10 @@ var point = localStorage.getItem("point");
 
 scoreCount.textContent = point;
 
-// endPage.style.display = null;
 
 // To countdown the time 
 var timeLeft = function () {
-    // var timeRemain = 45;
-
+   
     timeInterval = setInterval(function () {
         timeRemain--;
         timeEl.textContent = timeRemain;
@@ -63,10 +61,6 @@ var setState = function (state) {
     if (state === "end") {
         endPage.style.display = '';
     }
-    // if (state === "saved-scores") {
-    //     savedScores.style.display = '';
-    // }
-
 }
 
 // To hide all the quizzes except quiz1
@@ -74,8 +68,6 @@ var setState = function (state) {
 quizz2.style.display = 'none';
 quizz3.style.display = 'none';
 quizz4.style.display = 'none';
-// endPage.style.display = 'none';
-// savedScored.style.display = 'none';
 
 // To display the next set of question one at a time
 var displayNextQuestion = function (parentNode) {
@@ -85,7 +77,7 @@ var displayNextQuestion = function (parentNode) {
     nextQuestionEl.style.display = null;
 }
 
-
+// To add score if answers correctly or subtract times if answers incorrectly
 document.addEventListener('click', function (event) {
 
     if (event.target.matches('.choice')) {
@@ -94,7 +86,7 @@ document.addEventListener('click', function (event) {
         // console.log(element.textContent);
         if (element.textContent === parent.dataset.answer) {
             score++
-            scoreCount.innerHTML = ` ${score}`;
+            scoreCount.innerHTML = ` ${score}`;    
         } 
         if (element.textContent !== parent.dataset.answer){
             timeRemain-= 10;
@@ -107,6 +99,7 @@ document.addEventListener('click', function (event) {
     }
 });
 
+//Store initial and score in local storage
 submitBtn.addEventListener('click', function () {
     
     var initialName = document.querySelector('.initial').value;
@@ -119,14 +112,18 @@ submitBtn.addEventListener('click', function () {
         showScores(data);
 })
 
+//Displays score from local storage
 function showScores(data) {
     savedScores.style.display = '';
 
     var lis = document.createElement('li');
-    lis.innerHTML = data[i];
+    lis.style.listStyle = 'none';
+    lis.style.fontSize = "20px";
+    lis.innerHTML = data.initialName  +  " - "  +  "  " + data.score;
     savedResult.appendChild(lis);
 }
 
+// Back to the first page (intro)
 goBackBtn.addEventListener('click', function(){
     setState('intro');
 })
